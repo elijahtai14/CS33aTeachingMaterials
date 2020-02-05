@@ -1,0 +1,33 @@
+#blueblock, #greenblock, #redblock {
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+input[type=submit]:hover {
+  background-color: cadetblue;
+}
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+}
+
+#redblock {
+  background-color: red;
+}
+
+#greenblock {
+  background-color: green;
+}
+
+#blueblock {
+  background-color: blue;
+}
+
+/*# sourceMappingURL=style.css.map */

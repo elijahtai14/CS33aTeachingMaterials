@@ -1,0 +1,37 @@
+$blockwidth: 100px;
+$blockheight: 50px;
+
+%block {
+    width: $blockwidth;
+    height: $blockheight;
+    margin: 10px;
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+input[type="submit"]:hover {
+    background-color: cadetblue;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+#redblock {
+    @extend %block;
+    background-color: red;
+}
+
+#greenblock {
+    @extend %block;
+    background-color: green;
+}
+
+#blueblock {
+    @extend %block;
+    background-color: rgb(0, 0, 255);
+}
