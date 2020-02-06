@@ -19,12 +19,12 @@ class Parser:
     @statusDecorator
     def returnLinks(self):
         links = []
-        for link in self.soup.find_all('a'):
-            links.append(link.get('href'))
+        for link in self.soup.find_all('input'):
+            links.append(link)
         return links
 
     def printPage(self):
         print(self.soup.prettify())
 
-p = Parser("https://cs50.harvard.edu/extension/web/2020/spring/")
+p = Parser("https://www.google.com/imghp?hl=en")
 print(p.returnLinks())
