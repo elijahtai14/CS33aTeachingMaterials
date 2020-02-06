@@ -1,4 +1,6 @@
-# We are making a web scraper
-import requests
-import from bs4 import BeautifulSoup
+# To push to github:
+# git add .
+# git commit -m "Added a new file!"
+# git push
+
 
