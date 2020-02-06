@@ -2,7 +2,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-
 class Parser:
     def __init__(self, url):
         page = requests.get(url)
