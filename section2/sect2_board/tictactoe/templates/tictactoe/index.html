@@ -7,20 +7,12 @@
 </head>
 <body>
 	<h1> Tic Tac Toe </h1>
+	{% for row in board %}
 	<div>
-		<button formaction="{% url 'index'%}" class = "square"> </button>
-		<button formaction="{% url 'index'%}" class = "square"> </button>
-		<button formaction="{% url 'index'%}" class = "square"> </button>
+		{% for cell in row %}
+		<button formaction="{% url 'index'%}" class = "square"> {{cell}} </button>
+		{% endfor %}
 	</div>
-	<div>
-		<button formaction="{% url 'index'%}" class = "square"> </button>
-		<button formaction="{% url 'index'%}" class = "square"> </button>
-		<button formaction="{% url 'index'%}" class = "square"> </button>
-	</div>
-	<div>
-		<button formaction="{% url 'index'%}" class = "square"> </button>
-		<button formaction="{% url 'index'%}" class = "square"> </button>
-		<button formaction="{% url 'index'%}" class = "square"> </button>
-	</div>
+	{% endfor %}
 </body>
 </html>
