@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Tic Tac Toe </title>
+	<link href="{% static 'tictactoe/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+	<h1> Tic Tac Toe </h1>
+	{% for row in board %}
+	<div>
+		{% for cell in row %}
+		<form style = "display: inline" action = "{% url 'index' %}" method = "post">
+			{% csrf_token %}
+			<input type="hidden" name="col" value ="{{ forloop.counter0 }}"></input>
+			<input type="hidden" name="row" value ="{{ forloop.parentloop.counter0 }}" ></input>
+			<input type="submit" class = "square" value ={{cell}} style="height:50px; width:50px; -webkit-appearance: none;"></input>
+		</form>
+		{% endfor %}
+	</div>
+	{% endfor %}
+</body>
+</html>

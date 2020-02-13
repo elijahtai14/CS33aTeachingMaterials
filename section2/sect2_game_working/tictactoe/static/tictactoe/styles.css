@@ -1,0 +1,9 @@
+h1 {
+	color : rgb(0, 100, 130);
+}
+
+.square {
+	width: 100px;
+	height: 100px;
+	padding: 100px;
+}
