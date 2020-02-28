@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Practice with Databases</title>
+    </head>
+
+    <script>
+        function showDiv(n) {
+            document.getElementById(n).style.display = "block";
+        }
+    </script>
+
+    <body>
+        <h1>
+            Practice
+        </h1>
+        <h2> SQlite </h2>
+        <h3> 1 </h3>
+        <p> Type: touch <code> database.sql </code> to create an database </p>
+        <h3> 2 </h3>
+        <p> Type: <code> sqlite3 database.sql </code> to examine the database</p>
+        <h3> 3 </h3>
+        <p> Type: <code> .tables </code> to show there are no tables</p>
+        <h3> 4 </h3>
+        <p> Create any new table of your choice. For example
+            <code> 
+                CREATE TABLE table_name (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    some_text TEXT NOT NULL,
+                    some_number INTEGER UNIQUE);
+            </code> 
+        </p>
+        <h3> 5 </h3>
+        <p> Type: <code> .tables </code> to show there is a table now </p>
+        <h3> 6 </h3>
+        <p> Type: <code> .schema table_name </code> view the structure of your table </p>
+        <h3> 7 </h3>
+        <p> Insert a row into your table </p>
+        <div id="7"  style="display:none;"> 
+            <code>
+                INSERT INTO table_name (col1, col2, ...) VALUES (val1, val2, ...)
+            </code>
+        </div>
+        <input type="button" name="answer" value="Show Solution" onclick="showDiv('7')" />
+        <h3> 8 </h3>
+        <p> Delete a row from your table</p>
+        <div id="8"  style="display:none;"> 
+            <code>
+                DELETE FROM table_name WHERE condition
+            </code>
+        </div>
+        <input type="button" name="answer" value="Show Solution" onclick="showDiv('8')" />
+        <h3> 9 </h3>
+        <p> Select all (*) columns from your table</p>
+        <div id="9"  style="display:none;"> 
+            <code>
+                SELECT * FROM table_name
+            </code>
+        </div>
+        <input type="button" name="answer" value="Show Solution" onclick="showDiv('9')" />
+        <h3> 10 </h3>
+        <p> Select a column from your table based on a condition</p>
+        <div id="10"  style="display:none;"> 
+            <code>
+                SELECT col FROM table_name WHERE condition
+            </code>
+        </div>
+        <input type="button" name="answer" value="Show Solution" onclick="showDiv('10')" />
+        
+        <h2> Django Models </h2>
+        <h3> 1 </h3>
+        <p> What do you see in Models.py? Describe them</p>
+        <h3> 2 </h3>
+        <p> Give both models a String Representation</p>
+        <h3> 3 </h3>
+        <p> Create a new model called Enrollment that maps students to courses</p>
+        <h3> 4 </h3>
+        <p> Create a superuser</p>
+        <h3> 5 </h3>
+        <p> Make Migrations and Migrate them using manage.py</p>
+        <h3> 6 </h3>
+        <p> Register your Models in admin.py</p>
+        <h3> 7 </h3>
+        <p> Log into the Admin App and Add some Rows</p>
+        <h3> 8 </h3>
+        <p> Go into the shell and experiment with some queries on your database </p>
+
+        <div id="11"  style="display:none;"> 
+        <pre><code>
+        # 2 and 3
+        from django.db import models
+
+
+        class Student(models.Model):
+            id = models.AutoField(primary_key=True)
+            name = models.CharField(max_length=100)
+
+            def __str__ (self):
+                return (f"Student {self.id}: {self.name}")
+
+        class Course(models.Model):
+            id = models.AutoField(primary_key=True)
+            title = models.CharField(max_length=100)
+            teacher = models.CharField(max_length=100)
+
+            def __str__ (self):
+                return (f"Course {self.id}: {self.title}")
+
+        class Enrollment(models.Model):
+            id = models.AutoField(primary_key=True)
+            
+            student_id = models.ForeignKey(Student, on_delete=models.CASCADE, related_name = "courses")
+            course_id = models.ForeignKey(Course, on_delete=models.CASCADE, related_name = "students")
+
+            def __str__ (self):
+                return (f"Course {self.course_id}: Student{self.student_id}")
+
+        # 4 python3 manage.py createsuperuser
+
+        # 5 python3 manage.py makemigrations
+        # 5 python3 manage.py migrate
+
+        # 6 from django.contrib import admin
+        # 6 from .models import Class, Enrollment, Student
+        # 6 admin.site.register(Class)
+        # 6 admin.site.register(Enrollment)
+        # 6 admin.site.register(Student)
+
+        # 8 python3 manage.py shell
+        </code></pre>
+        
+        </div>
+        <input type="button" name="answer" value="Show Solution" onclick="showDiv('11')" />
+
+    </body>
+</html>
+
