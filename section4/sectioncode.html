@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title> Section 4 </title>
+        <script>        
+            document.addEventListener('DOMContentLoaded', () => {
+
+                // DOM Loaded
+                console.log('DOM Loaded');
+
+                // Player's current score
+                if (!localStorage.getItem('currentScore')) {
+	                localStorage.setItem('currentScore', 0);
+                }
+
+                // Initally get set the current score and update the HTML
+                currentScore = localStorage.getItem('currentScore')
+                document.querySelector('#current-score').innerHTML = currentScore;
+                
+                // Called when a key is pressed
+                keyPressed = function(e) {     
+                    targetKey = document.querySelector('#current-letter').innerHTML
+                    // Case-insensitive comparison
+                    if (e.key.toUpperCase() == targetKey.toUpperCase()) {
+                        // Clear the current letter, increment and update the score 
+                        document.querySelector('#current-letter').innerHTML = ''
+                        currentScore++;
+                        localStorage.setItem('currentScore', currentScore);
+                        document.querySelector('#current-score').innerHTML = currentScore;
+                    }
+                }
+                
+                // Display a New Random letter every second
+                showNewLetter = function() {
+                    alphabet = 'ABCDEFGHIJKLMMNOPQRSTUVWXYX'
+                    document.querySelector('#current-letter').innerHTML = alphabet[Math.floor(26*Math.random())]
+                }
+
+                // Adding Event Listener to keyup to increment score if player pressed the right key
+                document.addEventListener('keydown', keyPressed)
+                // Showing a new letter every second
+                setInterval(showNewLetter, 1000)
+            })
+        </script>
+    </head>
+    <body>
+        <h1> Section 4 </h1>
+
+        <!-- The current score of the user, updated on keyPressed()-->
+        <h3> Score: </h3>
+        <h4 id='current-score'></h4>
+
+        <!-- The current letter the player should type, updated on showNewLetter() -->
+        <h2 id='current-letter'></h2>
+    </body>
+</html>
