@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title> Hello! </title>
+    <style> 
+
+        @keyframes change-color {
+            from {
+                color: navy;
+            }
+            to {
+                color: rosybrown
+            }
+        }
+        h1 {
+            animation-name: change-color;
+            animation-duration: 5s;
+            animation-direction: normal;
+            animation-iteration-count: infinite;
+        }
+    </style>
+
+    <script>
+        animateSpeed = (n) => {
+            console.log(n);
+            const element = document.querySelector('h1');
+            element.style.animationDuration = `${n}s`;
+        }
+    </script>
+
+</head>
+<body>
+    <h1> Title Text </h1>
+    <button onclick='animateSpeed(1);'> Make Me Faster</button>
+    <button onclick='animateSpeed(10);'> Make Me Slower</button>
+</body>
+</html>
+
+
+
