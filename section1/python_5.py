@@ -8,8 +8,10 @@ class Parser:
         self.soup = BeautifulSoup(page.content, "html.parser")
     
     def returnLinks(self):
+        links = []
         for link in self.soup.find_all('a'):
-            print(link.get('href'))
+            links.append(link.get('href'))
+        return links
 
     def printPage(self):
         print(self.soup.prettify())

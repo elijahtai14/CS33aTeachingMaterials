@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Some page</title>
+        <script> 
+            document.addEventListener("DOMContentLoaded", ()=>{
+                let current = "Off"
+                document.querySelector("#switch").onclick = () =>{ 
+                    if (current === "Off"){
+                        current = "On"
+                    } else {
+                        current = "Off"
+                    }
+                    document.querySelector("#label").innerHTML = current
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <h1 id="label">Off</h1>
+        <button id="switch"> On/Off </button>
+    </body>
+</html>
